@@ -1,0 +1,14 @@
+version: '3.5'
+
+services:
+  node:
+    restart: always
+    command: npm start
+    image: node:alpine
+    network_mode: bridge
+    ports:
+      - "3000:8080"
+    container_name: node
+    volumes:
+      - /var/nginx/www/html/app:/var/www/html/app
+    working_dir: '/var/www/html/app'
